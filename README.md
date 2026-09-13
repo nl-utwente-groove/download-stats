@@ -19,7 +19,8 @@ a manual run of the workflow replaces the rows of the same day.
 The downloads of an asset on a day are the difference between its counts on consecutive
 snapshot days. A negative difference means the asset was re-uploaded (the counter
 restarts at zero); count the new value as the increment. An asset that disappears from
-the API, such as one of a deleted test release, simply stops.
+the API, such as one of a deleted test release, simply stops. Draft releases are
+invisible to the workflow's token and never appear.
 
 The counters count every GET of the asset, including CI runs, mirrors and scanners; a
 handful of downloads per asset in the first day of a release is such traffic. Nothing is
