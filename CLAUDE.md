@@ -15,7 +15,8 @@ per-release table in `README.md`. The time series is derived by differencing con
 snapshots at render time; the README explains the data and its caveats (bot traffic, draft
 releases, re-uploaded assets). The same workflow runs `sourceforge.sh`, which regenerates
 `sourceforge-monthly.csv` from the SourceForge statistics (monthly totals per directory
-since 2007). The design record is `claude/download-stats.md` in the code repository (on
+since 2007) and `releases.sh`, which regenerates `releases.csv` (publication date per
+version, from the GitHub API and the SourceForge folder dates). The design record is `claude/download-stats.md` in the code repository (on
 branch `download-stats-design` until merged).
 
 The presentation is the page `downloads.md` plus `js/downloads.js` of the website

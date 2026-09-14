@@ -32,7 +32,14 @@ sum to 157 more than SourceForge's own total of `groove/`, the top-level entries
 less than the project total less `groove/`), presumably from files moved or deleted over
 the years. The per-directory numbers are the ones used.
 
-No field of either file contains a comma or a quote.
+`releases.csv` has one row per version: `version,date,source`, the publication date of
+the release on GitHub (`github`, from the releases API, test releases included) or, for
+the versions before 6.8.1, the date of its folder under `groove/` on SourceForge
+(`sourceforge`). The folder date is the last modification, which for 2.0.0 and 6.0.0
+lies after the first downloads (a month and half a year, respectively); the rest agree
+with the download data. `releases.sh` regenerates the file in the same workflow.
+
+No field of any of the files contains a comma or a quote.
 
 The downloads of an asset on a day are the difference between its counts on consecutive
 snapshot days. A negative difference means the asset was re-uploaded (the counter
