@@ -7,7 +7,10 @@ to be reconstructed by sampling the counters and differencing the samples. The d
 recorded in the code repository, `claude/download-stats.md`.
 
 Older releases are on [SourceForge](https://sourceforge.net/projects/groove/files/stats/timeline),
-which keeps its own statistics, including the country breakdown that GitHub cannot give.
+which keeps its own statistics, including the country breakdown that GitHub cannot give;
+its monthly totals since 2007 are imported here as well. Both files are rendered as one
+chart and one table on the [downloads page](https://groove.cs.utwente.nl/downloads.html)
+of the GROOVE website (`downloads.md` and `js/downloads.js` in the website repository).
 
 ## Data
 
@@ -15,6 +18,21 @@ which keeps its own statistics, including the country breakdown that GitHub cann
 the asset's cumulative download counter on that day (UTC). The workflow
 `.github/workflows/collect.yml` appends the rows every night by running `collect.sh`;
 a manual run of the workflow replaces the rows of the same day.
+
+`sourceforge-monthly.csv` has one row per month per SourceForge directory:
+`month,path,count`, with `month` as `YYYY-MM`, `path` the directory under
+`sourceforge.net/projects/groove/files/` (a `release-x_y_z` directory, a `groove/x.y.z`
+version directory, or `groove-docs`, `groove-samples`, `OldFiles` and the loose README
+files), and months without downloads left out. The same workflow regenerates the whole
+file every night by running `sourceforge.sh`: SourceForge keeps the complete history and
+revises nothing, so there is nothing to append to. The script warns when the directories
+do not add up to SourceForge's project total; on 2026-09-14 they did not (23,372 against
+23,871), and the disagreement goes both ways (the version directories under `groove/`
+sum to 157 more than SourceForge's own total of `groove/`, the top-level entries to 656
+less than the project total less `groove/`), presumably from files moved or deleted over
+the years. The per-directory numbers are the ones used.
+
+No field of either file contains a comma or a quote.
 
 The downloads of an asset on a day are the difference between its counts on consecutive
 snapshot days. A negative difference means the asset was re-uploaded (the counter

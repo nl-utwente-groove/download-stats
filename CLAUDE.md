@@ -13,27 +13,31 @@ GitHub keeps only a cumulative `download_count` per release asset, so the workfl
 dispatch) to append one row per asset to `snapshots.csv`, and `totals.sh` rewrites the
 per-release table in `README.md`. The time series is derived by differencing consecutive
 snapshots at render time; the README explains the data and its caveats (bot traffic, draft
-releases, re-uploaded assets). The design record is `claude/download-stats.md` in the code
-repository (on branch `download-stats-design` until merged).
+releases, re-uploaded assets). The same workflow runs `sourceforge.sh`, which regenerates
+`sourceforge-monthly.csv` from the SourceForge statistics (monthly totals per directory
+since 2007). The design record is `claude/download-stats.md` in the code repository (on
+branch `download-stats-design` until merged).
 
-The scripts run under bash with the `gh` CLI and GNU awk/sed/sort; they must keep working
-on `ubuntu-latest` and on Windows Git Bash. Run them locally before changing them:
-`bash collect.sh && bash totals.sh` on a clean tree, then inspect `git diff`. A local run
-uses the developer's token and therefore sees draft releases that the workflow's token
-does not; do not commit such a snapshot.
+The presentation is the page `downloads.md` plus `js/downloads.js` of the website
+repository (`nl-utwente-groove/nl-utwente-groove.github.io`, Jekyll, checked out at
+`../nl-utwente-groove.github.io`): Chart.js from cdnjs, both CSV files fetched from
+`raw.githubusercontent.com`, the series derived in the browser. There is no local Jekyll;
+test the script with a plain HTML harness that has the same markup as the page and a
+`data-base` attribute on `#downloads` pointing at local copies of the CSV files.
+
+The scripts run under bash with the `gh` CLI, curl and GNU awk/sed/grep/sort (no `jq`:
+Windows Git Bash has none); they must keep working on `ubuntu-latest` and on Windows Git
+Bash. Run them locally before changing them: `bash collect.sh && bash totals.sh` on a
+clean tree, then inspect `git diff`. A local run uses the developer's token and therefore
+sees draft releases that the workflow's token does not; do not commit such a snapshot.
+`bash sourceforge.sh` takes about a minute (one request per directory, ~140).
 
 ## Open work
 
-- One-off import of the SourceForge monthly totals since 2007 into
-  `sourceforge-monthly.csv` (SourceForge stats JSON:
-  `https://sourceforge.net/projects/groove/files/stats/json?start_date=…&end_date=…`,
-  per-directory under `files/<path>/stats/json`), with the script kept next to the
-  collector so it can be rerun.
-- A page on the website (`nl-utwente-groove/nl-utwente-groove.github.io`, Jekyll) that
-  fetches `snapshots.csv` from `raw.githubusercontent.com` and renders a monthly chart
-  stacked by asset kind plus the per-release table. Needs a checkout of the website
-  repository; there is none locally yet.
-- After 60 days: check that GitHub has not disabled the schedule for inactivity.
+- After 60 days (mid-November 2026): check that GitHub has not disabled the schedule for
+  inactivity.
+- The SourceForge project total and the per-directory sums disagree by about 2 %; the
+  README records the numbers. Not investigated further.
 
 ## Working practices
 
