@@ -2367,11 +2367,11 @@ month,path,count
 2026-08,release-7_5_3,6
 2026-09,OldFiles,6
 2026-09,README.md,1
-2026-09,groove-docs,2
+2026-09,groove-docs,3
 2026-09,groove-samples,6
 2026-09,groove/4.0.0,1
 2026-09,groove/4.0.2,3
-2026-09,groove/4.7.1,1
+2026-09,groove/4.7.1,2
 2026-09,groove/5.2.2,1
 2026-09,groove/5.7.2,1
 2026-09,groove/5.8.0,1
@@ -2384,4 +2384,4 @@ month,path,count
 2026-09,release-7_0_2,1
 2026-09,release-7_0_6,1
 2026-09,release-7_4_2,2
-2026-09,release-7_5_3,9
+2026-09,release-7_5_3,15
