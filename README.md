@@ -58,16 +58,16 @@ and the READ-ME text asset are left out; both stay in the data.
 
 <!-- totals -->
 
-As of 2026-11-20, cumulative since each release was published on GitHub.
+As of 2026-11-21, cumulative since each release was published on GitHub.
 
 | Release | bin | bin+doc | installers | yFiles add-on | total |
 |---|---:|---:|---:|---:|---:|
-| 7.8.0 | 4 | 1 | 4 | 0 | **9** |
+| 7.8.0 | 4 | 3 | 4 | 0 | **11** |
 | 7.7.1 | 3 | 3 | 5 | 0 | **11** |
 | 7.7.0 | 2 | 1 | 5 | 0 | **8** |
 | 7.6.1 | 9 | 2 | 4 | 0 | **15** |
 | 7.6.0 | 6 | 4 | 13 | 0 | **23** |
-| 7.5.3 | 100 | 20 | 0 | 0 | **120** |
+| 7.5.3 | 119 | 20 | 0 | 0 | **139** |
 | 7.5.2 | 28 | 21 | 0 | 0 | **49** |
 | 7.5.1 | 7 | 7 | 0 | 0 | **14** |
 | 7.4.3 | 52 | 68 | 0 | 0 | **120** |
@@ -93,7 +93,7 @@ As of 2026-11-20, cumulative since each release was published on GitHub.
 | 6.8.2 | 13 | 12 | 0 | 0 | **25** |
 | 6.8.1 | 38 | 42 | 0 | 0 | **80** |
 | 6.8.0 | 24 | 17 | 0 | 0 | **41** |
-| **all** | 605 | 501 | 31 | 0 | **1137** |
+| **all** | 624 | 503 | 31 | 0 | **1158** |
 
 <!-- /totals -->
 
