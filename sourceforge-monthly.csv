@@ -2397,13 +2397,14 @@ month,path,count
 2026-10,release-7_5_1,6
 2026-10,release-7_5_2,5
 2026-10,release-7_5_3,15
-2026-11,OldFiles,2
+2026-11,OldFiles,5
 2026-11,groove/3.0.1,1
 2026-11,groove/3.3.1,1
 2026-11,groove/5.5.6,1
 2026-11,groove/5.8.1,1
 2026-11,groove/6.0.3,1
 2026-11,groove/6.6.4,3
+2026-11,release-6_9_2,1
 2026-11,release-7_3_1,1
 2026-11,release-7_4_3,1
 2026-11,release-7_5_3,3
